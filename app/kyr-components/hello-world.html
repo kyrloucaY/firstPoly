@@ -1,0 +1,55 @@
+<dom-module id="hello-world">
+
+  <template>
+    <style>
+      /* CSS rules for your element */
+      h1 {
+        color: blue;
+        font-size: 30px;
+      }
+    </style>
+
+    <!-- local DOM for your element -->
+
+    <h1>hello {{firstName}} {{lastName}}</h1>
+
+    <h1>{{fullName}}</h1>
+    <input type="text" value="{{inValue::input}}">
+
+    <!--div>{{greeting}}</div> <!-- data bindings in local DOM -->
+  </template>
+
+  <script>
+    // element registration
+    Polymer({
+      is: "hello-world",
+
+      // add properties and methods on the element's prototype
+
+      properties: {
+        // declare properties for the element's public API
+        firstName: {
+          type: String,
+          value: "John"
+        },
+        lastName: {
+          type: String,
+          value: "Doe"
+        },
+        inValue:{
+          type:String,
+          value:" mr"
+        },
+        fullName: {
+          type: String,
+          computed: 'getFullName(firstName,LastName,inValue)'
+        }
+      },
+      getFullName: function (firstName, lastName,greeting) {
+        return 'computed '+ greeting+' '+ firstName + ' ' + lastName;
+
+      }
+    });
+  </script>
+
+</dom-module>

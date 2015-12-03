@@ -1,0 +1,147 @@
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+
+<dom-module id="contact-item">
+
+  <template>
+    <style>
+      /* CSS rules for your element */
+      .contain {
+        background-color: #dae8ff;
+        border-radius: 20px;
+        margin-bottom: 15px;
+        min-width: 400px;
+      }
+
+      .upper {
+        margin-left: 15px;
+        background-color: lavender;
+      }
+
+      .info {
+        display: inline-block;
+        overflow: hidden;
+        min-width: 180px;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 15px;
+
+      }
+
+      h1 {
+        color: blue;
+        font-size: 40px;
+        width: 400px;
+      }
+
+      .imgL1 {
+        border-radius: 20px;
+        border-style: solid;
+        border-width: 2px;
+        width: 50px;
+      }
+
+      .addr1 {
+        overflow: hidden;
+        margin-left: 30px;
+        margin-top: 20px;
+        width: 250px;
+      }
+
+      .inl {
+        display: inline-block;
+      }
+
+      #pb1 {
+        background-color: #00b0ff;
+        color: blue;
+        width: 10px;
+      }
+
+    </style>
+
+    <div class="contain">
+      <div class="upper">
+
+        <paper-input class="inl" label="enter your name" size="40px" value={{inPaper}}></paper-input>
+        <paper-button id="pb1" raised on-click="clearBtn">Clear</paper-button>
+
+        <span>{{name}} :</span>
+        <div> input: {{inPaper}} letters:{{stars}}</div>
+      </div>
+      <div>
+                <paper-input label="enter your last name" size=20px value={{employee.lastName}}></paper-input>
+      </div>
+      <div>First name: {{employee.firstName}}</div>
+      <div>Last Name: {{employee.lastName}}</div>
+
+      <div class="info">
+        <img class="imgL1" src={{image}}>
+        <span class="addr1">{{email}}</span>
+      </div>
+    </div>
+
+  </template>
+
+
+  <script>
+    // element registration
+    Polymer({
+      is: "contact-item",
+      properties: {
+        inPaper: {
+          type: String,
+          observer: 'myAlert',
+          notify: true
+        },
+        employee: {
+          type: Object,
+          value: {
+            firstName: 'Dem',
+            lastName: 'Louca'
+          },
+          observer: 'employeeAlert'
+        },
+        name: String,
+        email: String,
+        image: String,
+        stars: String
+
+      },
+      listeners: {
+        'tap': 'onKtap'
+
+      },
+      myAlert: function (val) {
+        var i;
+        var size = val.length;
+        if (this.stars) {
+          this.stars = this.stars + '*';
+        }
+        this.stars = this.stars || ' ';
+
+
+      },
+      clearBtn: function (e) {
+        this.inPaper = '';
+        this.stars = '';
+        //this.employee.firstName="fred"; doesn't work
+        this.set('employee.firstName', 'Fred');
+        //employee.lastName='farf';
+        this.set('employee.lastName', 'Boyle');
+        alert('name=' + e.target.id);
+        e.preventDefault();
+        return false;
+
+
+      },
+      onKtap: function (e) {
+        alert('tapped on element with name:' + this.name);
+      },
+      employeeAlert: function () {
+
+      }
+
+    });
+  </script>
+
+</dom-module>

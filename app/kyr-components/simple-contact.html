@@ -1,0 +1,132 @@
+<script src='../bower_components/webcomponentsjs/webcomponents-lite.min.js'></script>
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<dom-module id="simple-contact">
+
+  <template>
+    <style>
+      /* CSS rules for your element */
+      .container {
+        background-color: #d4ff23;
+        margin-bottom: 15px;
+        padding: 25px;
+        border-radius: 25px;
+        border-width: 1px;
+        border-style: solid;
+      }
+
+      .upper {
+        min-width: 20px;
+        overflow: hidden;
+      }
+
+      .photo {
+        display: inline-flex;
+        min-width: 200px;
+        align-items: center;
+      }
+
+      paper-button.fancy {
+        background-color: magenta;
+        color: black;
+      }
+
+      .imageHead {
+        width: 60px;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 20px;
+      }
+
+    </style>
+
+    <!-- local DOM for your element -->
+
+    <div class="container">
+      <div class="upper">
+        <span>first: {{employee.firstName}}</span>
+        <span>Last {{employee.lastName}}</span>
+        <span>  Car:  {{car}}</span>
+      </div>
+      <div>
+        <span>first qname:</span> {{employee.firstName}}
+        <span>email:</span> {{employee.email}}
+        <p> info: {{info}}</p>
+      </div>
+
+      <div class="photo">
+        <img class="imageHead" src="{{employee.im}}">
+        <span>{{employee.firstName}}</span>
+      </div>
+      <div id="btnDiv">
+
+        <p>stars:{{stars}}</p>
+        <paper-input label="Enter first name" value="{{employee.firstName}}"></paper-input>
+        <paper-input label="Enter Last name" value="{{employee.lastName}}"></paper-input>
+        <paper-input label="Enter car" value="{{car}}"></paper-input>
+        <paper-button id="bp1" on-tap="buttonTap" class="fancy" raised noink>clear</paper-button>
+      </div>
+
+    </div> <!-- data bindings in local DOM -->
+  </template>
+
+  <script>
+    // element registration
+    Polymer({
+      is: "simple-contact",
+      properties: {
+        // declare properties for the element's public API
+        employee: {
+          type: Object,
+          value: {
+            firstName: '',
+            lastName: '',
+            email: String,
+            im: String
+          }
+
+        },
+        car: {
+          type: String,
+          value: '',
+          notify: true
+
+        },
+        stars: String,
+        info:String
+
+      },
+      observers: [
+        //"employeeObserve(employee.firstName,employee.lastName)","carObserve(car)"
+        "employeeObserve(employee.*)", "carObserve(car)"
+      ],
+      ready: function () {
+        //this.stars = '*';
+        this.set('employee.firstName', this.a);
+        this.set('employee.lastName', this.ln);
+        this.set('employee.email', this.b);
+        this.set('employee.im', this.ca);
+      },
+      carObserve: function (newv) {
+        this.stars = (this.stars || '') + '&';
+         this.info=newv;
+      },
+      employeeObserve: function (changeRec) {
+        this.stars = (this.stars || '') + '*';
+        this.info=changeRec.path;
+      },
+      buttonTap: function () {
+        //this.employee.firstName='tapped preesed'; //does not notify {{}} about the value
+        this.stars = '';
+        this.set('employee.firstName', 'button first');
+        this.set('employee.lastName', 'button last');
+        alert('pressed');
+      }
+
+
+    })
+    ;
+
+  </script>
+
+</dom-module>

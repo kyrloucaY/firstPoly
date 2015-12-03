@@ -1,0 +1,26 @@
+body{
+  background-color: rgba(253, 255, 204, 0.47);
+}
+
+h1.hello-world{
+  color:red;
+}
+
+#b1{
+  background-color: blue;
+  font-size: 30px;
+}
+#b1.fancy:hover{
+  background-color: yellow;
+}
+google-map{
+
+  height: 600px;
+  zoom: 2;
+}
+#gm1{
+  width: 200px;
+}
+aside{
+  width: 30%;
+}

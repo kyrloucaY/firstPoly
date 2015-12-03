@@ -1,0 +1,76 @@
+<link rel="import" ref="contact-item.html">
+<link rel="import" href="simple-contact.html">
+<dom-module id="contact-list">
+
+  <template>
+    <style>
+      /* CSS rules for your element */
+
+      ul {
+        display: flex;
+        overflow: hidden;
+        min-width: 180px;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 1px solid #ff8bf8;
+
+      }
+
+      li {
+        display: list-item;
+        list-style-type: armenian;
+        padding-bottom: 2px;
+        margin-bottom: 100px;
+        border-bottom: 3px red solid;
+
+      }
+
+    </style>
+    <!-- local DOM for your element -->
+    <h1>Contact list element</h1>
+    <ul class="listCont">
+      <li>
+        <template is="dom-repeat" items="{{contactArray}}">
+          <!--contact-item name="{{item.name}}" image="{{item.imgSrc}}" email="{{item.email}}"></contact-item-->
+          <!--p class="endLi">-------------</p-->
+          <simple-contact  ca="{{item.imgSrc}}" b="{{item.email}}" a="{{item.name}} ln={{item.lastName}}"></simple-contact>
+        </template>
+      </li>
+
+    </ul>
+
+  </template>
+
+  <script>
+    // element registration
+    Polymer({
+      is: "contact-list",
+      ready: function () {
+        this.contactArray =
+          [
+            {
+              name: 'johnya',
+              lastName:'boris',
+              email: "John@enasimple.com",
+              imgSrc: 'https://randomuser.me/api/portraits/thumb/men/23.jpg'
+            },
+            {
+              name: 'Kyrr',
+              lastName:'Louc',
+              email: "John@enasimple.com",
+              imgSrc: 'https://randomuser.me/api/portraits/thumb/men/32.jpg'},
+            {
+              name: 'Mark',
+              lastName:'Huges',
+              email: "John@enasimple.com",
+              imgSrc: 'https://randomuser.me/api/portraits/thumb/men/34.jpg'
+            }]
+        alert('list loaded');
+      },
+      properties: {
+        value: "abc"
+      }
+    });
+  </script>
+
+</dom-module>

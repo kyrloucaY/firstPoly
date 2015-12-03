@@ -1,0 +1,98 @@
+<dom-module id="contact-list">
+
+  <template>
+    <style>
+      /* CSS rules for your element */
+      h1 {
+        color: blue;
+        font-size: 30px;
+      }
+      li {
+        display: flex;
+        overflow: hidden;
+        min-width: 80px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+
+      li + li {
+        border-top: 3px solid;
+      }
+
+    </style>
+
+    <!-- local DOM for your element -->
+    <h1>Contact list element</h1>
+    <ul>
+      <li>
+        <template is="dom-repeat" items="{{contactArray}}">
+          <style>
+            h1 {
+              color: blue;
+              font-size: 30px;
+            }
+
+            .info {
+              display: inline-flex;
+              align-items: center;
+            }
+
+            .name {
+              margin-top: 2px;
+              margin-bottom: 2px;
+            }
+
+            .imgL1 {
+              border-radius: 30px;
+
+            }
+
+            .addr1 {
+              overflow: hidden;
+              margin-left: 40px;
+
+            }
+
+          </style>
+          <h1 class="name">{{item.name}}</h1>
+
+          <div class="info">
+            <img class="imgL1" src={{item.imgSrc}}>
+            <span class="addr1">{{item.email}}</span>
+
+          </div>
+        </template>
+      </li>
+
+    </ul>
+
+  </template>
+
+  <script>
+    // element registration
+    Polymer({
+      is: "contact-list",
+      ready: function () {
+        this.contactArray =
+          [
+            {
+              name: 'john',
+              email: "John@enasimple.com",
+              imgSrc: 'https://randomuser.me/api/portraits/thumb/men/23.jpg'
+            },
+            {name: 'Kyr', email: "John@enasimple.com", imgSrc: 'https://randomuser.me/api/portraits/thumb/men/32.jpg'},
+            {
+              name: 'Mark',
+              email: "John@enasimple.com",
+              imgSrc: 'https://randomuser.me/api/portraits/thumb/men/34.jpg'
+            }]
+      },
+      properties: {
+        value: "abc"
+      }
+    });
+  </script>
+
+</dom-module>
