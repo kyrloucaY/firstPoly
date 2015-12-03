@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="875b234c-d396-4544-b8b5-cf6668ef52bf" name="Default" comment="everything&#10;">
+    <list default="true" id="875b234c-d396-4544-b8b5-cf6668ef52bf" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ta4/app/kyr-components/contact-item.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ta4/app/kyr-components/contact-list-original.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ta4/app/kyr-components/contact-list.html" />
@@ -11,7 +11,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ta4/app/styles/styles1.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ta4/bower.json" afterPath="$PROJECT_DIR$/../ta4/bower.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/kyr-components/test.html" afterPath="$PROJECT_DIR$/app/kyr-components/test.html" />
     </list>
     <ignored path="ta4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,7 +47,7 @@
             <entry file="file://$PROJECT_DIR$/app/kyr-components/test.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.1563055">
-                  <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+                  <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
@@ -113,7 +112,7 @@
     </option>
     <option name="ROOT_SYNC" value="SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RECENT_COMMON_BRANCH" value="master" />
+    <option name="RECENT_COMMON_BRANCH" value="branchFirst" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -832,7 +831,7 @@
     <entry file="file://$PROJECT_DIR$/app/kyr-components/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1563055">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
           <folding />
         </state>
       </provider>
